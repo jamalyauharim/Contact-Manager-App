@@ -1,0 +1,13 @@
+<mat-card *ngIf="contacts.length > 0">
+	<mat-card *ngFor="let contact of contacts">
+		<p><strong>Full Name:   </strong>{{ contact.name + " " + contact.lastName }}		
+		<strong> Phone number:   </strong>{{ contact.phoneNumber }}		
+		<strong> Address:   </strong>{{contact.address}}		
+		<strong> Portfolio:   </strong>{{contact.portfolio}}		
+		</p>
+		<div>
+			<button mat-button color="warn" (click)="onDelete(contact.id)">Delete Contact</button>
+		</div>
+	</mat-card>
+</mat-card>
+<p align="center" *ngIf="contacts.length <= 0"> No contacts in your list </p>

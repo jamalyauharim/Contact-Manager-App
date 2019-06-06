@@ -1,0 +1,12 @@
+mat-card{
+	text-align: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-color: black;
+	border-radius: 2px;
+}
+
+button
+{
+	margin-top: 5px;
+}

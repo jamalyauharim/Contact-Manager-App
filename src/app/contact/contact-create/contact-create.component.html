@@ -1,0 +1,48 @@
+
+<body class="content">
+	<form (submit)="onAddContact(contactForm)" #contactForm="ngForm">
+		<mat-form-field>
+			<input 
+				matInput 
+				placeholder="Name" 
+				name="contactName"
+				ngModel
+				required/>
+		</mat-form-field>
+
+		<mat-form-field>
+			<input 
+				matInput 
+				placeholder="Last Name" 
+				name="contactLastName"
+				ngModel/>
+		</mat-form-field>
+
+		<mat-form-field>
+			<input 
+				matInput 
+				placeholder="Phone number" 
+				name="contactPhoneNumber"
+				ngModel
+				required/>
+		</mat-form-field>
+
+		<mat-form-field>
+			<input 
+				matInput 
+				placeholder="Address" 
+				name="contactAddress"
+				ngModel/>
+		</mat-form-field>
+
+		<mat-form-field>
+			<input 
+				matInput 
+				placeholder="Portfolio" 
+				name="contactPortfolio"
+				ngModel/>
+		</mat-form-field>
+
+		<button mat-raised-button type="submit">Add contact</button>
+	</form>
+</body>
