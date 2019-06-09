@@ -5,10 +5,11 @@
 	<span class="spacer"></span>
 	<ul>
 		<li>
-			<a mat-button routerLink="/login">Log In</a>
-			<a mat-button routerLink="/signup">Sign Up</a>	
-			<a mat-button routerLink="/create">Create Contact</a>	
-			<a mat-button routerLink="/">My Contacts</a>	
+			<a *ngIf="!authenticated" mat-button routerLink="/login">Log In</a>
+			<a *ngIf="!authenticated" mat-button routerLink="/signup">Sign Up</a>	
+			<a *ngIf="authenticated" mat-button routerLink="/create">Create Contact</a>	
+			<a *ngIf="authenticated" mat-button routerLink="myContacts">My Contacts</a>	
+			<a *ngIf="authenticated" mat-button (click)="onLogout()">Log Out</a>
 		</li>
 			
 	</ul>
