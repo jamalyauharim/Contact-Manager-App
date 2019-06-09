@@ -8,8 +8,9 @@ import { ContactCreateComponent } from "./contact/contact-create/contact-create.
 
 
 const routes: Routes = [
-	{ path: '', component: ContactListComponent },
-	{ path: 'create', component: ContactCreateComponent },
+	{ path: '', component: LoginComponent },
+	{ path: "myContacts", component: ContactListComponent},
+	{ path: "create", component: ContactCreateComponent },
 	{ path: "login", component: LoginComponent },
 	{ path: "signup", component: SignupComponent },
 ];

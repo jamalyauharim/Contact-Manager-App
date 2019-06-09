@@ -10,15 +10,16 @@ router.post("", checkAuthorization, (req, res, next) => {
 		lastName: req.body.lastName,
 		phoneNumber:req.body.phoneNumber,
 		address: req.body.address,
-		portfolio: req.body.portfolio
+		portfolio: req.body.portfolio,
+		creator: req.userData.userId
 	});
 	contact.save();
 	console.log(contact);
 	res.status(200).json();
 });
 
-router.get("", (req, res, nex) => {
-	Contact.find()
+router.get("/myContacts", checkAuthorization, (req, res, nex) => {
+	Contact.find({ creator: req.userData.userId })
 		.then(contactsFromDataBase => {
 			res.status(200).json({
 				contacts: contactsFromDataBase

@@ -5,7 +5,8 @@ const contactTemplate = mongoose.Schema({
 	lastName: String,
 	phoneNumber: String,
 	address: String,
-	portfolio:String
+	portfolio: String,
+	creator: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
 });
 
 module.exports = mongoose.model('Contact', contactTemplate);

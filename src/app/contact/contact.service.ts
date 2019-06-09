@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Contact } from "./contact.model";
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from "@angular/router";
 
 @Injectable({providedIn: 'root'})
 export class ContactService {
 	private contacts: Contact[] = [];
 	private contactsUpdated = new Subject<Contact[]>();
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient, private router: Router) {}
 
 	getContacts() {
 		this.http.get<{contacts: any}>(
@@ -23,7 +24,8 @@ export class ContactService {
 						lastName: contact.lastName,
 						phoneNumber: contact.phoneNumber,
 						address: contact.address,
-						portfolio: contact.portfolio
+						portfolio: contact.portfolio,
+						creator: contact.creator
 					};
 				});
 			}))
@@ -46,6 +48,7 @@ export class ContactService {
 		});
 		this.contacts.push(contact);
 		this.contactsUpdated.next([...this.contacts]);
+		this.router.navigate(['/myContacts']);
 	}
 
 	deleteContact(contactId: string) {
