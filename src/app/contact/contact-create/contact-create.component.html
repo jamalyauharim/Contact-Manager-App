@@ -6,8 +6,10 @@
 				matInput 
 				placeholder="Name" 
 				name="contactName"
-				ngModel
-				required/>
+				[ngModel]="contact?.name"
+				required
+				#name="ngModel"
+				/>
 		</mat-form-field>
 
 		<mat-form-field>
@@ -15,7 +17,8 @@
 				matInput 
 				placeholder="Last Name" 
 				name="contactLastName"
-				ngModel/>
+				[ngModel]="contact?.lastName"
+				/>
 		</mat-form-field>
 
 		<mat-form-field>
@@ -23,7 +26,7 @@
 				matInput 
 				placeholder="Phone number" 
 				name="contactPhoneNumber"
-				ngModel
+				[ngModel]="contact?.phoneNumber"
 				required/>
 		</mat-form-field>
 
@@ -32,7 +35,8 @@
 				matInput 
 				placeholder="Address" 
 				name="contactAddress"
-				ngModel/>
+				[ngModel]="contact?.address"
+				/>
 		</mat-form-field>
 
 		<mat-form-field>
@@ -40,7 +44,8 @@
 				matInput 
 				placeholder="Portfolio" 
 				name="contactPortfolio"
-				ngModel/>
+				[ngModel]="contact?.portfolio"
+				/>
 		</mat-form-field>
 
 		<button mat-raised-button type="submit">Add contact</button>
