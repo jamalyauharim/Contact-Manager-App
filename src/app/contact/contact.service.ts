@@ -40,6 +40,29 @@ export class ContactService {
 		return this.contactsUpdated.asObservable();
 	}
 
+	getContact(id: string) {
+		return this.http.get<{_id: string, name: string, lastName: string, phoneNumber: string, address: string, portfolio: string}>(
+			"http://localhost:3000/api/contacts/" + id
+			);
+	}
+
+	updateContact(id: string, name: string, lastName: string, phoneNumber: string, address: string, portfolio: string) {
+		const contact: Contact = { id: id ,name: name, lastName: lastName, phoneNumber: phoneNumber,  
+			address: address, portfolio: portfolio };
+		this.http
+			.put("http://localhost:3000/api/contacts/" + id, contact)
+			.subscribe(response => {
+				const updateContacts = [...this.contacts];
+				const oldContactIndex = updateContacts.findIndex(c => c.id === contact.id);
+				updateContacts[oldContactIndex] = contact;
+				this.contacts = updateContacts;
+				this.contactsUpdated.next([...this.contacts]);
+				this.router.navigate(['/myContacts']);
+			});
+	}
+
+
+
 	addContact(name: string, lastName: string, phoneNumber: string, address: string, portfolio: string) {
 		const contact: Contact = { id: null ,name: name, lastName: lastName, phoneNumber: phoneNumber, 
 			address: address, portfolio: portfolio};

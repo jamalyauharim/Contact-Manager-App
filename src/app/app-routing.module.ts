@@ -11,8 +11,9 @@ const routes: Routes = [
 	{ path: '', component: LoginComponent },
 	{ path: "myContacts", component: ContactListComponent},
 	{ path: "create", component: ContactCreateComponent },
+	{ path: "edit/:contactId", component: ContactCreateComponent},
 	{ path: "login", component: LoginComponent },
-	{ path: "signup", component: SignupComponent },
+	{ path: "signup", component: SignupComponent }
 ];
 
 @NgModule({
